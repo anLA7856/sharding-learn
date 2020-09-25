@@ -30,7 +30,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  */
 @Configuration
 @ComponentScan(basePackageClasses = DalModule.class)
-@MapperScan(basePackages = "com.oujiong.mapper")
+@MapperScan(basePackages = "com.anla.dbtable.mapper")
 public class DalModule {
 
     /**
@@ -52,9 +52,9 @@ public class DalModule {
         shardingRuleConfig.getTableRuleConfigs().add(getOrderTableRuleConfiguration());
         shardingRuleConfig.getBindingTableGroups().add("tab_user");
         shardingRuleConfig.getBroadcastTables().add("t_config");
-        //TODO 根据年龄分库 一共分为2个库
+        // 根据年龄分库 一共分为2个库
         shardingRuleConfig.setDefaultDatabaseShardingStrategyConfig(new InlineShardingStrategyConfiguration("age", "ds${age % 2}"));
-        //TODO 根据ID分表  一共分为2张表
+        // 根据ID分表  一共分为3张表
         shardingRuleConfig.setDefaultTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("id", new PreciseModuloShardingTableAlgorithm()));
         return ShardingDataSourceFactory.createDataSource(createDataSourceMap(), shardingRuleConfig, new Properties());
     }
@@ -65,7 +65,7 @@ public class DalModule {
     }
 
     TableRuleConfiguration getOrderTableRuleConfiguration() {
-        TableRuleConfiguration result = new TableRuleConfiguration("tab_user", "ds${0..1}.tab_user${0..1}");
+        TableRuleConfiguration result = new TableRuleConfiguration("tab_user", "ds${0..1}.tab_user${0..2}");
         result.setKeyGeneratorConfig(getKeyGeneratorConfiguration());
         return result;
     }

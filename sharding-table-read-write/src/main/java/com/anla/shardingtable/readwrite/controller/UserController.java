@@ -1,8 +1,8 @@
-package com.anla.dbtable.controller;
+package com.anla.shardingtable.readwrite.controller;
 
 
-import com.anla.dbtable.entity.User;
-import com.anla.dbtable.service.UserService;
+import com.anla.shardingtable.readwrite.entity.User;
+import com.anla.shardingtable.readwrite.service.UserService;
 import com.google.common.collect.Lists;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -33,16 +33,11 @@ public class UserController {
      */
     @PostConstruct
     private void getData() {
-        userList.add(new User(1L,"小小", "女", 3));
-        userList.add(new User(2L,"爸爸", "男", 30));
-        userList.add(new User(3L,"妈妈", "女", 28));
-        userList.add(new User(4L,"爷爷", "男", 64));
-        userList.add(new User(5L,"奶奶", "女", 62));
-        userList.add(new User(7L,"小小1", "女", 13));
-        userList.add(new User(8L,"爸爸2", "男", 130));
-        userList.add(new User(9L,"妈妈3", "女", 128));
-        userList.add(new User(10L,"爷爷4", "男", 164));
-        userList.add(new User(11L,"奶奶5", "女", 162));
+        userList.add(new User(100L,"小小", "女", 3));
+        userList.add(new User(101L,"爸爸", "男", 30));
+        userList.add(new User(102L,"妈妈", "女", 28));
+        userList.add(new User(103L,"爷爷", "男", 64));
+        userList.add(new User(104L,"奶奶", "女", 62));
     }
     /**
      * @Description: 批量保存用户

@@ -17,7 +17,7 @@ public final class DataSourceUtil {
 
     private static final String USER_NAME = "root";
 
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "123456";
 
     public static DataSource createDataSource(final String dataSourceName) {
         DruidDataSource result = new DruidDataSource();

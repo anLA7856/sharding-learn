@@ -17,6 +17,8 @@
     <module>sharding-read-write</module>
     <module>sharding-table</module>
     <module>sharding-db-table</module>
+    <module>sharding-table-read-write</module>
+    <module>sharding-db-table-read-write</module>
   </modules>
 
   <properties>
